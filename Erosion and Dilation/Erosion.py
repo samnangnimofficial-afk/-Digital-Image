@@ -1,0 +1,44 @@
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+img = cv2.imread('cat.webp', 0)
+
+kernel = np.ones((5, 5), np.uint8)
+
+img_erosion = cv2.erode(img, kernel, iterations=1)
+
+plt.figure(figsize=(10, 5))
+
+plt.subplot(1, 2, 1)
+plt.imshow(img, cmap='gray')
+plt.title("Original Image")
+plt.axis('off')
+
+plt.subplot(1, 2, 2)
+plt.imshow(img_erosion, cmap='gray')
+plt.title("After Erosion")
+plt.axis('off')
+
+plt.tight_layout()
+plt.show()
+kernel = np.ones((5, 5), np.uint8)
+
+img_dilation = cv2.dilate(img, kernel, iterations=1)
+
+plt.figure(figsize=(10, 5))
+
+plt.subplot(1, 2, 1)
+plt.imshow(img, cmap='gray')
+plt.title("Original Image")
+plt.axis('off')
+
+plt.subplot(1, 2, 2)
+plt.imshow(img_dilation, cmap='gray')
+plt.title("After Dilation")
+plt.axis('off')
+
+plt.tight_layout()
+plt.show()
+
+
